@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:background="@drawable/blueparreg">
+
+
+    <TextView
+        android:id="@+id/mainLeft4_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parent Control App"
+        android:layout_marginBottom="80dp"
+
+        />
+
+
+    <TextView
+        android:id="@+id/mainText2_view"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Join as a Parent"
+
+        android:textSize="30dp"
+        />
+
+    <TextView
+        android:id="@+id/subText2_view"
+        android:layout_width="373dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Fill the form below to Sign up"
+
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/parent_fullname_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Full Name"
+
+        android:inputType="text" />
+
+
+
+    <EditText
+        android:id="@+id/parent_emailaddress_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/parent_number_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Enter Phone"
+
+        android:inputType="phone"/>
+
+    <EditText
+        android:id="@+id/parent_password_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Password"
+
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/parent_repassword_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Retype Password"
+
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/parent_signup_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="110dp"
+        />
+
+    <TextView
+        android:id="@+id/msg2_view"
+        android:layout_width="373dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Already have an account? "
+
+        android:layout_marginTop="45dp"
+        />
+
+
+    <Button
+        android:id="@+id/parent_signin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="Sign-In"
+        android:textSize="10dp"/>
+
+</LinearLayout>

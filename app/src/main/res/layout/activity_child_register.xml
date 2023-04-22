@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/mainLeft5_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parent Control App"
+        android:layout_marginBottom="100dp"
+        />
+
+
+    <TextView
+        android:id="@+id/mainText3_view"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Register a Child"
+        android:textSize="30dp"
+        />
+
+    <TextView
+        android:id="@+id/subText3_view"
+        android:layout_width="373dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Fill the form below to add a child"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/child_fullname_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Full Name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/child_age_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Enter Age"
+        android:inputType="textPassword" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RadioButton android:id="@+id/child_male_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/child_female_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/child_save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:layout_marginTop="20dp"
+
+        />
+
+</LinearLayout>
