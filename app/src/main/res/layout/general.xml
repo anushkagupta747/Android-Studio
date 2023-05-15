@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:padding="20dp"
     android:orientation="vertical"
-    android:background="@drawable/bluelight">
+    android:background="@drawable/cphome1">
 
     <TextView
         android:id="@+id/parent_login_view"
@@ -14,18 +14,32 @@
         android:gravity="center"
         android:text="GENERAL"
         android:textSize="30dp"
+        android:textColor="@color/white"
         android:layout_marginBottom="50dp"
         android:layout_marginTop="40dp"
         android:textStyle="bold"
         />
 
-    <TextView
-        android:id="@+id/mainLeft2_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Number of Children registered:"
-        android:textSize="20dp"
-        android:layout_marginBottom="100dp"
+    <android.widget.Button
+    android:id="@+id/viewChild_button"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:text="View children registered"
+    android:layout_marginTop="190dp"
+    android:layout_gravity="center_horizontal"
+    android:textColor="@color/white"
+    android:background="@drawable/main_gradient_button"
+    />
 
+    <android.widget.Button
+        android:id="@+id/addChild_button"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Register new child"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:background="@drawable/main_gradient_button"
         />
+
 </LinearLayout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+    >
+
+
+    <TextView
+        android:id="@+id/mainText2_view"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:text="Registration Details"
+        android:layout_marginBottom="30dp"
+        />
+
+
+    <EditText
+        android:id="@+id/textbox_name"
+        android:layout_width="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:hint="Enter Child Name"
+        android:inputType="text" />
+
+
+
+    <EditText
+        android:id="@+id/textbox_email"
+        android:layout_width="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:hint="Email"
+        android:inputType="text"
+        />
+
+    <EditText
+        android:id="@+id/textbox_age"
+        android:layout_width="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter Age"
+        android:inputType="phone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <RadioGroup
+        android:id="@+id/genderRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioButtonBoy"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="25dp"
+            android:text="Boy" />
+
+    </RadioGroup>
+
+        <RadioButton
+            android:id="@+id/radioButtonGirl"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="25dp"
+            android:text="Girl" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <android.widget.Button
+            android:id="@+id/datePickerButton"
+            android:layout_width="120dp"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dobTextView"
+            android:text="Select Date"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/main_gradient_button"/>
+
+        <TextView
+            android:id="@+id/dobTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Select Date of Birth"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+
+    <EditText
+        android:id="@+id/password_child"
+        android:layout_width="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:hint="Enter password"
+        android:layout_marginTop="30dp"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/confirmpassword_child"
+        android:layout_width="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:hint="Confirm password"
+        android:inputType="textPassword" />
+
+
+    <android.widget.Button
+        android:id="@+id/loadDB_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="110dp"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:background="@drawable/main_gradient_button"
+        />
+
+
+
+    <TextView
+        android:id="@+id/msg2_view"
+        android:layout_width="373dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="45dp"
+        android:text="Back to General"
+        />
+
+
+    <android.widget.Button
+        android:id="@+id/back_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="Back"
+        android:textColor="@color/white"
+        android:background="@drawable/main_gradient_button"
+        />
+
+</LinearLayout>

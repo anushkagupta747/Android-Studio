@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/playVideoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Video"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/videoDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video description"
+        android:textSize="18sp"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/dosAndDonts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dos and Don'ts:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center" />
+
+</LinearLayout>
+

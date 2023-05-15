@@ -12,6 +12,30 @@
         android:theme="@style/Theme.HomePage"
         tools:targetApi="31">
         <activity
+            android:name=".sos"
+            android:exported="false" />
+        <activity
+            android:name=".emergency_contacts"
+            android:exported="false" />
+        <activity
+            android:name=".dnd"
+            android:exported="false" />
+        <activity
+            android:name=".child_home"
+            android:exported="false" />
+        <activity
+            android:name=".app_download"
+            android:exported="false" />
+        <activity
+            android:name=".app_usage"
+            android:exported="false" />
+        <activity
+            android:name=".call_history"
+            android:exported="false" />
+        <activity
+            android:name=".reg_new_child"
+            android:exported="false" />
+        <activity
             android:name=".GeneralActivity"
             android:exported="false" />
         <activity
