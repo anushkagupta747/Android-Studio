@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="20dp"
     android:orientation="vertical"
-    android:background="@drawable/homepagelight"
+    android:background="@drawable/cp1"
     tools:context=".MainActivity">
 
     <TextView
@@ -17,8 +17,8 @@
         android:text="Parent Control App"
         android:textStyle="bold"
         android:textSize="34dp"
-
-        android:layout_marginTop="530dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
         />
 
     <TextView
@@ -26,18 +26,22 @@
         android:layout_width="373dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-
         android:text="A digital way to keep track of your children"
         android:textStyle="italic"
+        android:textColor="@color/white"
         />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/getStarted_button"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="110dp"
-        android:text="GET STARTED" />
+        android:layout_marginTop="530dp"
+        android:layout_marginLeft="90dp"
+        android:layout_gravity="center_horizontal"
+        android:text="GET STARTED"
+        android:textColor="@color/white"
+        android:background="@drawable/main_gradient_button"
+        />
 
 
 </LinearLayout>

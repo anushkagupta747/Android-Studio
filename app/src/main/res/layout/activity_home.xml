@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home"
-    android:background="@drawable/bluelighthome">
+    android:background="@drawable/cphome1">
 
     <TextView
         android:id="@+id/title_view"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="HOME"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="30sp"
         android:layout_marginTop="12dp"
@@ -38,7 +38,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="#ffffff"
+            app:cardBackgroundColor="#b3c6ff"
             app:cardCornerRadius="8dp"
             app:cardElevation="12dp"
             >
@@ -80,7 +80,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="#ffffff"
+            app:cardBackgroundColor="#b3c6ff"
             app:cardCornerRadius="8dp"
             app:cardElevation="12dp"
             >
@@ -122,7 +122,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="#ffffff"
+            app:cardBackgroundColor="#99b3ff"
             app:cardCornerRadius="8dp"
             app:cardElevation="12dp"
             >
@@ -170,7 +170,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="#ffffff"
+            app:cardBackgroundColor="#99b3ff"
             app:cardCornerRadius="8dp"
             app:cardElevation="12dp"
             >
@@ -219,7 +219,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="#ffffff"
+            app:cardBackgroundColor="#809fff"
             app:cardCornerRadius="8dp"
             app:cardElevation="12dp"
             >
@@ -261,7 +261,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="#ffffff"
+            app:cardBackgroundColor="#809fff"
             app:cardCornerRadius="8dp"
             app:cardElevation="12dp"
             >
