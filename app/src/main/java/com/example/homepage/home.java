@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class home extends AppCompatActivity {
 
@@ -18,6 +19,9 @@ public class home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("email");
+        String password = intent.getStringExtra("password");
 
         general = (CardView) findViewById(R.id.card_general);
         general.setOnClickListener(new View.OnClickListener() {

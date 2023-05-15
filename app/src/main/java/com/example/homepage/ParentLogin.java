@@ -73,6 +73,10 @@ public class ParentLogin extends AppCompatActivity {
                                 // Login successful, user credentials are valid
                                 Toast.makeText(ParentLogin.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 // Redirect to the home or main activity
+                                SPUMaster.saveMode(getApplicationContext(), "parentmode");
+                                SPUMaster.saveParentPassword(getApplicationContext(), password);
+                                SPUMaster.saveParentId(getApplicationContext(), email);
+
                                 Intent intent = new Intent(ParentLogin.this, home.class);
                                 intent.putExtra("email", email);
                                 intent.putExtra("password", password);
