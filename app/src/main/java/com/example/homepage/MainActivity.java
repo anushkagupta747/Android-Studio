@@ -178,6 +178,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, child_home.class);
             startActivity(intent);
         }
+        if(mode.equals("parentmode"))
+        {
+            Intent intent = new Intent(MainActivity.this, home.class);
+            startActivity(intent);
+        }
 
 
 
