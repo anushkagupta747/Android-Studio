@@ -1,6 +1,7 @@
 package com.example.homepage;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -15,12 +16,23 @@ import androidx.core.content.ContextCompat;
 public class sos extends AppCompatActivity {
 
     private static final int REQUEST_CALL_PHONE_PERMISSION = 1;
+    private Context mContext;
     private Button sosButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sos);
+
+        String latitude = SPUChildSupport.getLatitude(getApplicationContext());
+        String longitude = SPUChildSupport.getLongitude(getApplicationContext());
+        String token = SPUChildSupport.getToken(getApplicationContext());
+        FCMSend.pushNotification(
+                mContext,
+                token,
+                "Alert!! Someone's following me",
+                "Please check location in app"
+        );
 
         sosButton = findViewById(R.id.sos_button);
         sosButton.setOnClickListener(new View.OnClickListener() {

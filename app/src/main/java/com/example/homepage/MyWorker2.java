@@ -428,6 +428,8 @@ public class MyWorker2 extends Worker {
                     latitude = location.getLongitude();
                     altitude = location.getAltitude();
 
+
+
                     // Get the current speed in meters/second
                     float speed = location.getSpeed();
                     // Convert the speed to km/h
