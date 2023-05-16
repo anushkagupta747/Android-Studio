@@ -137,9 +137,10 @@ public class MyWorker2 extends Worker {
                                 FCMSend.pushNotification(
                                         mContext,
                                         token,
-                                        "Suspicious Pictures Detected",
+                                        "Suspicious Pic Detected"+timestampSaved,
                                         "Please check your child's phone"
                                 );
+                                Log.d("Notification sent", "run: ");
                             }
                         }
 
