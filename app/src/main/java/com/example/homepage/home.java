@@ -1,12 +1,20 @@
 package com.example.homepage;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class home extends AppCompatActivity {
 
@@ -14,6 +22,8 @@ public class home extends AppCompatActivity {
     private CardView call_history;
     private CardView app_usage;
     private CardView app_dwd;
+    private CardView card_location;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +32,8 @@ public class home extends AppCompatActivity {
         Intent intent = getIntent();
         String email = intent.getStringExtra("email");
         String password = intent.getStringExtra("password");
+
+//        setChildID();
 
         general = (CardView) findViewById(R.id.card_general);
         general.setOnClickListener(new View.OnClickListener() {
@@ -60,9 +72,41 @@ public class home extends AppCompatActivity {
             }
         });
 
+        card_location = (CardView) findViewById(R.id.card_location);
+        card_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(home.this, child_location.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+//    public void setChildID(){
+//        String parentID = SPUMaster.getParentId(getApplicationContext());
+//
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        String parentId = "abc";
+//
+//        db.collection("child")
+//                .whereEqualTo("parent_id", parentId)
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful()) {
+//                            for (DocumentSnapshot document : task.getResult()) {
+//                                String childId = document.getId();
+//                                Log.d("MainActivity", "Child ID: " + childId);
+//                            }
+//                        } else {
+//                            Log.d("MainActivity", "Error getting documents: ", task.getException());
+//                        }
+//                    }
+//                });
 
     }
 
 
 
-}

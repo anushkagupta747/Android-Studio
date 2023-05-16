@@ -20,16 +20,16 @@
         android:textStyle="bold"
         />
 
-    <android.widget.Button
-    android:id="@+id/viewChild_button"
-    android:layout_width="250dp"
-    android:layout_height="wrap_content"
-    android:text="View children registered"
-    android:layout_marginTop="190dp"
-    android:layout_gravity="center_horizontal"
-    android:textColor="@color/white"
-    android:background="@drawable/main_gradient_button"
-    />
+<!--    <android.widget.Button-->
+<!--    android:id="@+id/viewChild_button"-->
+<!--    android:layout_width="250dp"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="View children registered"-->
+<!--    android:layout_marginTop="190dp"-->
+<!--    android:layout_gravity="center_horizontal"-->
+<!--    android:textColor="@color/white"-->
+<!--    android:background="@drawable/main_gradient_button"-->
+<!--    />-->
 
     <android.widget.Button
         android:id="@+id/addChild_button"
