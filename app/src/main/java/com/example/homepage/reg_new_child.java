@@ -104,6 +104,7 @@ public class reg_new_child extends AppCompatActivity {
                 }
                 else
                 {
+                    SPUChildSupport.saveChildCount(getApplicationContext(), 1);
                     MCFChildRegister data=new MCFChildRegister(token,childName,parentId,age,selectedGender,password);
                     db.collection("child_details").document().set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
