@@ -1,22 +1,28 @@
 package com.example.homepage;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
 public class sos extends AppCompatActivity {
 
     private static final int REQUEST_CALL_PHONE_PERMISSION = 1;
-    private Context mContext;
     private Button sosButton;
 
     @Override
@@ -24,29 +30,22 @@ public class sos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sos);
 
-        String latitude = SPUChildSupport.getLatitude(getApplicationContext());
-        String longitude = SPUChildSupport.getLongitude(getApplicationContext());
-        String token = SPUChildSupport.getToken(getApplicationContext());
-        FCMSend.pushNotification(
-                mContext,
-                token,
-                "Alert!! Someone's following me",
-                "Please check location in app"
-        );
-
         sosButton = findViewById(R.id.sos_button);
         sosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeSosCall();
+                String phoneNumber = SPUChildSupport.getPhone(getApplicationContext());
+                makeSosCall(phoneNumber);
             }
         });
+
+        String parentName = SPUMaster.getParentId(getApplicationContext()); // Replace with the actual parent name
+        getParentPhone(parentName);
     }
 
-    private void makeSosCall() {
-        String phoneNumber = "tel:" + "+918971762095"; // Replace with the desired phone number, including country code
+    private void makeSosCall(String phoneNumber) {
         Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse(phoneNumber));
+        callIntent.setData(Uri.parse("tel:" + phoneNumber));
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL_PHONE_PERMISSION);
@@ -61,8 +60,37 @@ public class sos extends AppCompatActivity {
 
         if (requestCode == REQUEST_CALL_PHONE_PERMISSION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                makeSosCall();
+                String phoneNumber = SPUChildSupport.getPhone(getApplicationContext());
+                makeSosCall(phoneNumber);
             }
         }
+    }
+
+    private void getParentPhone(String parentName) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("parent_details")
+                .whereEqualTo("parent_name", parentName)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            QuerySnapshot querySnapshot = task.getResult();
+                            if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                                DocumentSnapshot documentSnapshot = querySnapshot.getDocuments().get(0);
+                                String phoneNumber = documentSnapshot.getString("phone");
+                                // Use the phoneNumber as needed
+                                Log.d("Phone Number", phoneNumber);
+                                SPUChildSupport.savePhone(getApplicationContext(), phoneNumber);
+                            } else {
+                                // No matching parent with the given name found
+                                Log.d("Phone Number", "No matching parent found");
+                            }
+                        } else {
+                            // Error occurred while querying the database
+                            Log.e("Phone Number", "Error occurred: " + task.getException());
+                        }
+                    }
+                });
     }
 }

@@ -8,6 +8,8 @@ public class SPUChildSupport {
     public static final String PREF_KEY_CHILDCOUNT = "child_count";
     public static final String PREF_KEY_LATITUDE = "latitude";
     public static final String PREF_KEY_LONGITUDE = "longitude";
+    public static final String PREF_KEY_PHONE = "phone";
+
 
     private static SharedPreferences getSharedPreferences(Context context) {
         return context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
@@ -52,9 +54,25 @@ public class SPUChildSupport {
         editor.putString(PREF_KEY_LONGITUDE, longitude);
         editor.apply();
     }
+    public static String getPhone(Context context) {
+        return getSharedPreferences(context).getString(PREF_KEY_PHONE, "");
+    }
+
+    public static void savePhone(Context context, String phone) {
+        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+        editor.putString(PREF_KEY_PHONE, phone);
+        editor.apply();
+    }
+
 }
 //
 //    String token = SPUChildSupport.getToken(getApplicationContext());
 //    SPUChildSupport.saveToken(getApplicationContext(), "your_token_value");
 //        int childCount = SPUChildSupport.getChildCount(getApplicationContext());
 //        SPUChildSupport.saveChildCount(getApplicationContext(), 5);
+//
+//    String phoneNumber = SPUChildSupport.getPhone(getApplicationContext());
+//
+//    String phoneNumber = "12345"; // Replace with the actual phone number
+//SPUChildSupport.savePhone(getApplicationContext(), phoneNumber);
+
