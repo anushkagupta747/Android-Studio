@@ -1,5 +1,6 @@
 package com.example.homepage;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.work.OneTimeWorkRequest;
@@ -12,7 +13,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +33,7 @@ public class child_home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child_home);
-
+        setParentToken();
         Log.d("MAIN ACTIVITY WORK RUN", "Running work...");
         OneTimeWorkRequest initialRequest = new OneTimeWorkRequest.Builder(MyWorker2.class)
                 .setInitialDelay(10, TimeUnit.SECONDS)
@@ -64,5 +69,34 @@ public class child_home extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setParentToken() {
+        String parentid=SPUMaster.getParentId(getApplicationContext());
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("child_details")
+                .whereEqualTo("parent_id", parentid)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            QuerySnapshot querySnapshot = task.getResult();
+                            if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                                DocumentSnapshot documentSnapshot = querySnapshot.getDocuments().get(0);
+                                String parentToken = documentSnapshot.getString("parent_token");
+                                // Use the parentToken as needed
+                                SPUChildSupport.saveToken(getApplicationContext(), parentToken);
+                                Log.d("Parent Token", parentToken);
+                            } else {
+                                // No matching child with the given parent ID found
+                                Log.d("Parent Token", "No matching child found");
+                            }
+                        } else {
+                            // Error occurred while querying the database
+                            Log.e("Parent Token", "Error occurred: " + task.getException());
+                        }
+                    }
+                });
     }
 }

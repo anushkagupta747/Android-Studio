@@ -121,8 +121,11 @@ public class MyWorker2 extends Worker {
                         long timestampLatest = getLatestImageTimestamp(contexts);
                         long timestampSaved = SPUMaster.getTimestamp(contexts);
                         Log.d(timestampSaved + " " + timestampLatest, "Running asynchronous work...");
-                        if (timestampLatest != timestampSaved) {
+                        if (timestampLatest > timestampSaved) {
                             // There is a new image, so we need to classify it
+                            timestampSaved = timestampLatest;
+                            // Update the timestamp of the last processed image
+                            SPUMaster.saveTimestamp(contexts, timestampSaved);
                             Uri latestUri = getUriOfLatestImage();
                             Bitmap latestImage = getLatestImageFromGallery(latestUri);
                             int indexOfFirstConfidence = classifyImage(latestImage);
@@ -130,14 +133,14 @@ public class MyWorker2 extends Worker {
                             Log.d("RESULT = " + Checking[indexOfFirstConfidence], "");
                             if (indexOfFirstConfidence == 2 || indexOfFirstConfidence == 4) {
                                 //handle notification to parent for sus picture
+                                String token = SPUChildSupport.getToken(getApplicationContext());
+                                FCMSend.pushNotification(
+                                        mContext,
+                                        token,
+                                        "Suspicious Pictures Detected",
+                                        "Please check your child's phone"
+                                );
                             }
-                            // Update the timestamp of the last processed image
-                            timestampSaved = timestampLatest;
-                            SPUMaster.saveTimestamp(contexts, timestampSaved);
-
-
-
-
                         }
 
                     }

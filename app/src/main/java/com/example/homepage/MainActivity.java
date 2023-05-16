@@ -102,6 +102,7 @@ import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
@@ -115,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         //PERMS FOR NOTIFICATION
         //afnan- cI_BBuG3RrO6u17aCaIbnx:APA91bHpltz5ZhrdfXpDLYhs2kPDjxtxdFvlZjmtu-nA86op9j9772Is1hZJqNm8kiR-e_EnKQ6gwUQhmip7F10Q48r3NHoQfG41i1PTB-HcV-jlZpYGuj6E6b8iZnuaHwVn-KCiCMAn
@@ -169,6 +172,12 @@ public class MainActivity extends AppCompatActivity {
             requestUsageStatsPermission();
         }
 
+        String mode = SPUMaster.getMode(getApplicationContext());
+        if(mode.equals("childmode"))
+        {
+            Intent intent = new Intent(MainActivity.this, child_home.class);
+            startActivity(intent);
+        }
 
 
 
@@ -207,5 +216,7 @@ public class MainActivity extends AppCompatActivity {
         int mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), getPackageName());
         return mode == AppOpsManager.MODE_ALLOWED;
     }
+
+
 }
 
