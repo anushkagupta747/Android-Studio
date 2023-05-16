@@ -64,7 +64,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
-            android:id="@+id/card_location"
+            android:id="@+id/card_ws"
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_rowWeight="1"
@@ -151,7 +151,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_img_inspection"
+            android:id="@+id/card_ch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="1"

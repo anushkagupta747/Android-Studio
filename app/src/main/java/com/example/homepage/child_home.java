@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 public class child_home extends AppCompatActivity {
 
-    private CardView dnd, ec, sos;
+    private CardView dnd, ec, sos,ws,ch;
     private static final int MY_PERMISSIONS_REQUEST_READ_CALL_LOG = 123;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
     FirebaseFirestore db;
@@ -65,6 +65,24 @@ public class child_home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(child_home.this, sos.class);
+                startActivity(intent);
+            }
+        });
+
+        ws=(CardView) findViewById(R.id.card_ws);
+        ws.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(child_home.this, web_search2.class);
+                startActivity(intent);
+            }
+        });
+
+        ch=(CardView) findViewById(R.id.card_ch);
+        ch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(child_home.this, child_helpline2.class);
                 startActivity(intent);
             }
         });

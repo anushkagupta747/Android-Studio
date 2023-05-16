@@ -31,26 +31,28 @@
         />
 
     <EditText
-        android:id="@+id/pcode_edit"
-        android:layout_width="300dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="Enter Password"
-        android:layout_marginTop="120dp"
-        android:inputType="textPassword"
-        />
-
-    <EditText
         android:id="@+id/chEmail_edit"
         android:layout_width="300dp"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:hint="Enter Email"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="120dp"
         android:inputType="textEmailAddress"
         />
+
+    <EditText
+        android:id="@+id/pcode_edit"
+        android:layout_width="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Enter Password"
+        android:layout_marginTop="5dp"
+        android:inputType="textPassword"
+        />
+
+
 
 
     <android.widget.Button
