@@ -83,6 +83,11 @@ public class home extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
+
 //    public void setChildID(){
 //        String parentID = SPUMaster.getParentId(getApplicationContext());
 //
