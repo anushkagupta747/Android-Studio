@@ -56,7 +56,8 @@ public class ChildLogin extends AppCompatActivity {
                                 Toast.makeText(ChildLogin.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 // Redirect to the home or main activity
                                 SPUMaster.saveMode(getApplicationContext(), "childmode");
-                                SPUMaster.saveParentPassword(getApplicationContext(), password);
+                                SPUMaster.saveChildPassword(getApplicationContext(), password);
+                                SPUMaster.saveChildId(getApplicationContext(), email);
                                 SPUMaster.saveParentId(getApplicationContext(), email);
                                                 Intent intent = new Intent(ChildLogin.this, child_home.class);
                                                 startActivity(intent);

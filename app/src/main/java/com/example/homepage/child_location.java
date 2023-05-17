@@ -30,8 +30,10 @@ public class child_location extends AppCompatActivity {
         setContentView(R.layout.activity_child_location);
         ListView listView = findViewById(R.id.listview);
 
+        String childIds = SPUMaster.getChildId(getApplicationContext());
+        String parentPassword = SPUMaster.getParentPassword(getApplicationContext());
+        String childID=childIds+parentPassword;
 
-        String childID = "abcafnan";
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("child_location")
                 .whereEqualTo("childID", childID)

@@ -33,9 +33,10 @@ public class app_usage extends AppCompatActivity {
         setContentView(R.layout.activity_app_usage);
 
         String childId = SPUMaster.getChildId(getApplicationContext());
+        String parentPassword = SPUMaster.getParentPassword(getApplicationContext());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String currentDate = sdf.format(new Date());
-        String documentID=childId+currentDate;
+        String documentID=childId+parentPassword+currentDate;
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ListView listView = findViewById(R.id.listview);
 

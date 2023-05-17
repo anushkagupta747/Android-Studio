@@ -12,7 +12,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class call_history extends AppCompatActivity {
@@ -25,7 +27,9 @@ public class call_history extends AppCompatActivity {
 //        String childID = SPUMaster.getChildId(getApplicationContext()); // Add this line to retrieve the child ID
 
 
-        String childID = "abcafnan";
+        String childIds = SPUMaster.getChildId(getApplicationContext());
+        String parentPassword = SPUMaster.getParentPassword(getApplicationContext());
+        String childID=childIds+parentPassword;
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ListView listView = findViewById(R.id.call_log_list_view);
 

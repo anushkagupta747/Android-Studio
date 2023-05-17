@@ -96,7 +96,7 @@ public class reg_new_child extends AppCompatActivity {
 //                String dateOfBirth = dobTextView.getText().toString();
                 String password = passwordEditText.getText().toString();
                 String confirmPassword = confirmPasswordEditText.getText().toString();
-                String parentId = SPUMaster.getParentId(getApplicationContext());
+                String parentId = emailEditText.getText().toString();
                 int childCount = SPUChildSupport.getChildCount(getApplicationContext());
                 if(childCount==1)
                 {
@@ -110,6 +110,7 @@ public class reg_new_child extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
+                                SPUMaster.saveChildId(getApplicationContext(), parentId);
                                 Log.d("Child details uploaded", " ", task.getException());
                                 Toast.makeText(reg_new_child.this, childName+" has been registered", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(reg_new_child.this, home.class);
